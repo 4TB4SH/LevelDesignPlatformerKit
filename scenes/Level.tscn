@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bl86soslydxnc"]
+[gd_scene load_steps=42 format=3 uid="uid://bl86soslydxnc"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_epbnk"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_00u4m"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dy017k58p20sk" path="res://objects/cloud.tscn" id="16_6cm4f"]
 [ext_resource type="PackedScene" uid="uid://uqr4hswv6d2g" path="res://objects/platform_grass_large_round.tscn" id="16_jdu66"]
 [ext_resource type="PackedScene" uid="uid://ytqajrdi7fqj" path="res://objects/trampoline.tscn" id="17_18kbs"]
+[ext_resource type="PackedScene" path="res://objects/dither_obstacle.tscn" id="17_tsde1"]
 [ext_resource type="PackedScene" uid="uid://rjh4ifidqrfp" path="res://objects/platform_medium.tscn" id="17_vl17y"]
 [ext_resource type="PackedScene" uid="uid://bddgf7n531bdn" path="res://models/props/fence-low-straight.glb" id="18_pm3qd"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="19_f5khj"]
@@ -82,10 +83,10 @@ point_count = 4
 
 [sub_resource type="Curve3D" id="Curve3D_6eab1"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 26, 35.5, 22, 0, 0, 0, 0, 0, 0, 33, 15, 22),
-"tilts": PackedFloat32Array(0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 26, 35.5, 22, 0, 0, 0, 0, 0, 0, 33, 15, 20.5, 0, 0, 0, 0, 0, 0, 33, 15, 23, 0, 0, 0, 0, 0, 0, 26, 35.5, 22),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
 }
-point_count = 2
+point_count = 4
 
 [sub_resource type="Curve3D" id="Curve3D_ea6sm"]
 _data = {
@@ -218,6 +219,11 @@ transform = Transform3D(2.5, 0, 0, 0, -20, 2.18557e-07, 0, -1.74846e-06, -2.5, 1
 
 [node name="platform-grass-large-round2" parent="World/Island" instance=ExtResource("16_jdu66")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 1.5, 0, -13)
+
+[node name="DitherObstacle" parent="World/Island/platform-grass-large-round2" instance=ExtResource("17_tsde1")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.375, 0, 3.25)
+min_distance_dither = 3.0
+max_distance_dither = 6.0
 
 [node name="platform-grass-large-round4" parent="World/Island" instance=ExtResource("16_jdu66")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.5, -5, -13.5)
@@ -949,8 +955,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.5, 14.5, 15)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, -7)
 curve = SubResource("Curve3D_6eab1")
 object_to_move = NodePath("../platform-moving3")
-movement_speed = 4.0
-ping_pong = true
+movement_speed = 3.5
 
 [node name="platform-moving4" parent="World/Victor" instance=ExtResource("12_swiuf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5, 6.5, 13.5)
@@ -1381,7 +1386,7 @@ visible = false
 trampoline_strength = 20.0
 
 [node name="fence-low-straight2" parent="World/Shattered ship" instance=ExtResource("18_pm3qd")]
-transform = Transform3D(9.65926, 4.52534e-08, -1.03528, 2.58819, -1.68888e-07, 3.8637, 0, -4, -1.74846e-07, 43.3908, 10.9963, -8.5)
+transform = Transform3D(9.65926, 4.52534e-08, -1.03528, 2.58819, -1.68888e-07, 3.8637, 0, -4, -1.74846e-07, 43.3908, 10.4963, -8.5)
 
 [node name="fence-low-straight7" parent="World/Shattered ship" instance=ExtResource("18_pm3qd")]
 transform = Transform3D(7.03, 3.26196e-07, 12.9254, 12.1763, -5.64988e-07, -7.4625, 3.07291e-07, 14.925, -5.64988e-07, -5, 15.5, -11.5)
