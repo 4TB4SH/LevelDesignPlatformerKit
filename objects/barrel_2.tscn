@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv467kcd3xluo"]
+[gd_scene load_steps=4 format=3 uid="uid://q5x3rtvnnbgv"]
 
 [ext_resource type="PackedScene" uid="uid://dgwnhphsmk556" path="res://models/props/barrel.glb" id="1_b28mv"]
+[ext_resource type="PackedScene" uid="uid://dqe83pil81wbx" path="res://objects/dither_obstacle.tscn" id="2_nfabq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_in1ei"]
 height = 0.5
@@ -13,3 +14,5 @@ radius = 0.25
 [node name="CollisionShape3D" type="CollisionShape3D" parent="barrel/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("CylinderShape3D_in1ei")
+
+[node name="DitherObstacle" parent="." index="1" instance=ExtResource("2_nfabq")]
